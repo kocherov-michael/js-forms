@@ -37,7 +37,11 @@ $(document).ready(function(){
 		// Проверяем правильность email и пароля
 		var _formLogin = function (event) {
     		var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
-    		if(pattern.test(_loginEmail.val())){
+    		if (_loginEmail.val().trim() == '' && _loginPassword.val().trim() == '') {
+    			_passwordErrorEmpty.prependTo('#login-form').fadeIn(1000);
+    			_emailErrorEmpty.prependTo('#login-form').fadeIn(1000);
+    			event.preventDefault();
+    		}else if(pattern.test(_loginEmail.val())){
     			if (_loginPassword.val().trim() == '') {
     				_passwordErrorEmpty.prependTo('#login-form').fadeIn(1000);
     				event.preventDefault();
@@ -47,6 +51,10 @@ $(document).ready(function(){
     			} else {
     				console.log('correct');
     			}
+    		} else if (_loginPassword.val().trim() == '') {
+    			_passwordErrorEmpty.prependTo('#login-form').fadeIn(1000);
+    			_emailErrorEmpty.prependTo('#login-form').fadeIn(1000);
+    			event.preventDefault();
     		} else if (_loginEmail.val().trim() == '') {
     			_emailErrorEmpty.prependTo('#login-form').fadeIn(1000);
     			event.preventDefault();
