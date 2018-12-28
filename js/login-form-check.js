@@ -9,10 +9,10 @@ $(document).ready(function(){
 		var _form = $('#login-form');
 		var _loginEmail = $('#login-email');
 		var _loginPassword = $('#login-password');
-		var _emailErrorEmpty = $('<div id="login-email-empty" class="notify notify--error mb-20 notify-hide">Введите email</div>');
-		var _emailErrorWrong = $('<div id="login-email-wrong" class="notify notify--error mb-20 notify-hide">Неверный формат email</div>');
-		var _passwordErrorEmpty = $('<div id="login-password-empty" class="notify notify--error mb-20 notify-hide">Введите пароль</div>');
-		var _passwordErrorWrong = $('<div id="login-password-wrong" class="notify no-paddings notify-hide"><div class="notify no-radius-bottom notify--error">Неверный email или пароль</div><div class="notify no-radius-top"><p>Введите верные данные для входа или воспользуйтесь<a href="#!">восстановлением пароля </a>, чтобы войти на сайт.</p></div></div>');
+		var _emailErrorEmpty = $('<div class="notify notify--error mb-20">Введите email</div>');
+		var _emailErrorWrong = $('<div class="notify notify--error mb-20">Неверный формат email</div>');
+		var _passwordErrorEmpty = $('<div class="notify notify--error mb-20">Введите пароль</div>');
+		var _passwordErrorWrong = $('<div class="notify no-paddings"><div class="notify no-radius-bottom notify--error">Неверный email или пароль</div><div class="notify no-radius-top"><p>Введите верные данные для входа или воспользуйтесь<a href="#!">восстановлением пароля </a>, чтобы войти на сайт.</p></div></div>');
 
 		// Метод инициализации (запуска) модуля
 		var init = function(){
