@@ -53,7 +53,7 @@ $(document).ready(function(){
     			}
     		} else if (_loginPassword.val().trim() == '') {
     			_passwordErrorEmpty.prependTo('#login-form').fadeIn(1000);
-    			_emailErrorEmpty.prependTo('#login-form').fadeIn(1000);
+    			_emailErrorWrong.prependTo('#login-form').fadeIn(1000);
     			event.preventDefault();
     		} else if (_loginEmail.val().trim() == '') {
     			_emailErrorEmpty.prependTo('#login-form').fadeIn(1000);
