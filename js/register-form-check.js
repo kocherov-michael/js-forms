@@ -36,7 +36,11 @@ $(document).ready(function(){
 		// Проверяем вводимые данные
 		var _formLogin = function (event) {
     		var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
-    		if(pattern.test(_registrationEmail.val())) {
+    		if (_registrationEmail.val().trim() == '' && _registrationPassword.val().trim() == '') {
+    			_passwordErrorEmpty.prependTo('#registration-form').fadeIn(1000);
+    			_emailErrorEmpty.prependTo('#registration-form').fadeIn(1000);
+    			event.preventDefault();
+    		}else if(pattern.test(_registrationEmail.val())) {
     			if (_registrationEmail.val().trim() == email) {
     				_emailErrorExist.prependTo('#registration-form').fadeIn(1000);
     				event.preventDefault();
@@ -46,6 +50,10 @@ $(document).ready(function(){
     			} else {
     				console.log('correct');
     			}
+    		} else if (_registrationPassword.val().trim() == '') {
+    			_passwordErrorEmpty.prependTo('#registration-form').fadeIn(1000);
+    			_emailErrorWrong.prependTo('#registration-form').fadeIn(1000);
+    			event.preventDefault();
     		} else if (_registrationEmail.val().trim() == '') {
     			_emailErrorEmpty.prependTo('#registration-form').fadeIn(1000);
     			event.preventDefault();
