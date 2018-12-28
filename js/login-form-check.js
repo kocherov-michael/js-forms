@@ -9,15 +9,14 @@ $(document).ready(function(){
 		var _form = $('#login-form');
 		var _loginEmail = $('#login-email');
 		var _loginPassword = $('#login-password');
-		var _emailErrorEmpty = $('#login-email-empty');
-		var _emailErrorWrong = $('#login-email-wrong');
-		var _passwordErrorEmpty = $('#login-password-empty');
-		var _passwordErrorWrong = $('#login-password-wrong');
+		var _emailErrorEmpty = $('<div id="login-email-empty" class="notify notify--error mb-20 notify-hide">Введите email</div>');
+		var _emailErrorWrong = $('<div id="login-email-wrong" class="notify notify--error mb-20 notify-hide">Неверный формат email</div>');
+		var _passwordErrorEmpty = $('<div id="login-password-empty" class="notify notify--error mb-20 notify-hide">Введите пароль</div>');
+		var _passwordErrorWrong = $('<div id="login-password-wrong" class="notify no-paddings notify-hide"><div class="notify no-radius-bottom notify--error">Неверный email или пароль</div><div class="notify no-radius-top"><p>Введите верные данные для входа или воспользуйтесь<a href="#!">восстановлением пароля </a>, чтобы войти на сайт.</p></div></div>');
 
 		// Метод инициализации (запуска) модуля
 		var init = function(){
 			_setUpListeners(); // Запускаем прослушку событий
-
 		}
 
 		// Метод прослушки событий
@@ -40,19 +39,19 @@ $(document).ready(function(){
     		var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
     		if(pattern.test(_loginEmail.val())){
     			if (_loginPassword.val().trim() == '') {
-    				_passwordErrorEmpty.fadeIn(1000);
+    				_passwordErrorEmpty.prependTo('#login-form').fadeIn(1000);
     				event.preventDefault();
     			} else if (_loginPassword.val().trim() != password || _loginEmail.val().trim() != email){
-    				_passwordErrorWrong.fadeIn(1000);
+    				_passwordErrorWrong.prependTo('#login-form').fadeIn(1000);
     				event.preventDefault();
     			} else {
     				console.log('correct');
     			}
     		} else if (_loginEmail.val().trim() == '') {
-    			_emailErrorEmpty.fadeIn(1000);
+    			_emailErrorEmpty.prependTo('#login-form').fadeIn(1000);
     			event.preventDefault();
     		}else {
-    			_emailErrorWrong.fadeIn(1000);
+    			_emailErrorWrong.prependTo('#login-form').fadeIn(1000);
     			event.preventDefault();
     		}
 		}
