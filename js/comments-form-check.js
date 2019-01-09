@@ -19,21 +19,21 @@ $(document).ready(function(){
 		var _setUpListeners = function(){
 			_form.on('submit', function(event){
 				_formValidate(event);
-				// console.log('Hello from _comment-form-check()');
 			});
 		}
 
 		var _formValidate = function (event) {
-    		// event.preventDefault();
     		if (_commentTextarea.val().trim() == '') {
     			_commentErrorEmpty.fadeIn(1000);
     			event.preventDefault();
     		} else {
     			_commentErrorEmpty.fadeOut();
-    			// $('form').unbind('submit').submit();
     		}
 
-
+    		// Убираем ошибки при клике
+    		_commentTextarea.on('keydown', function(){
+    			_commentErrorEmpty.fadeOut(0);
+    		});
 
 			console.log(_commentTextarea.val());
 		}
