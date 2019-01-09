@@ -64,18 +64,8 @@ $(document).ready(function(){
     			event.preventDefault();
     		}
     		// Убираем ошибки при клике
-    		_loginEmail.on('focus', function(){
-    			_emailErrorEmpty.fadeOut(0);
-    			_emailErrorWrong.fadeOut(0);
-    			_passwordErrorEmpty.fadeOut(0);
-    			_passwordErrorWrong.fadeOut(0);
-    		});
-    		_loginPassword.on('focus', function(){
-    			_emailErrorEmpty.fadeOut(0);
-    			_emailErrorWrong.fadeOut(0);
-    			_passwordErrorEmpty.fadeOut(0);
-    			_passwordErrorWrong.fadeOut(0);
-    		});
+    		_loginEmail.on('focus', _removeError);
+    		_loginPassword.on('focus', _removeError);
 		}
 
 		// Возвращаем публичные медоты, которые будут доступны снаружи
