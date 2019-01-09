@@ -29,7 +29,10 @@ $(document).ready(function(){
 		}
 		// Убираем уведомления об ошибках
 		var _removeError = function(){
-			var _errorMessage = $('.notify').fadeOut(0);
+			_emailErrorEmpty.fadeOut(0);
+			_emailErrorWrong.fadeOut(0);
+			_passwordErrorEmpty.fadeOut(0);
+			_emailErrorExist.fadeOut(0);
 		}
 		// Проверяем вводимые данные
 		var _formLogin = function (event) {
@@ -58,6 +61,9 @@ $(document).ready(function(){
     			_emailErrorWrong.prependTo('#registration-form').fadeIn(1000);
     			event.preventDefault();
     		}
+    		// Убираем ошибки при клике
+    		_registrationEmail.on('focus', _removeError);
+    		_registrationPassword.on('focus', _removeError);
 		}
 
 		// Возвращаем публичные медоты, которые будут доступны снаружи
