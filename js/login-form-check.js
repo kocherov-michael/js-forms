@@ -6,6 +6,7 @@ $(document).ready(function(){
 		var password = '123';
 
 		// Переменные модуля
+		var _errorErase;
 		var _form = $('#login-form');
 		var _loginEmail = $('#login-email');
 		var _loginPassword = $('#login-password');
@@ -62,6 +63,19 @@ $(document).ready(function(){
     			_emailErrorWrong.prependTo('#login-form').fadeIn(1000);
     			event.preventDefault();
     		}
+    		// Убираем ошибки при клике
+    		_loginEmail.on('focus', function(){
+    			_emailErrorEmpty.fadeOut(0);
+    			_emailErrorWrong.fadeOut(0);
+    			_passwordErrorEmpty.fadeOut(0);
+    			_passwordErrorWrong.fadeOut(0);
+    		});
+    		_loginPassword.on('focus', function(){
+    			_emailErrorEmpty.fadeOut(0);
+    			_emailErrorWrong.fadeOut(0);
+    			_passwordErrorEmpty.fadeOut(0);
+    			_passwordErrorWrong.fadeOut(0);
+    		});
 		}
 
 		// Возвращаем публичные медоты, которые будут доступны снаружи
